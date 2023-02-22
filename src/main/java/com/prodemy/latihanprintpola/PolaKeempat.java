@@ -12,7 +12,7 @@ public class PolaKeempat extends Pola{
     @Override
     public void printPola(int n) {
         int angka=1;
-        int angka2=1;
+        int angka2=17;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (i==j) {
@@ -24,7 +24,7 @@ public class PolaKeempat extends Pola{
                 }
             }
             angka+=2;
-            angka2+=2;
+            angka2-=2;
             System.out.println("");
         }
     }
