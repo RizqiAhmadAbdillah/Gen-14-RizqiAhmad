@@ -13,30 +13,38 @@ import java.util.*;
 public class Soal07 {
 
     public static void main(String[] args) {
-        String daftarBarang[][] = {
-            {"Oreo", "6000"},
-            {"Tanggo", "5000"},
-            {"Buavita", "7000"},
-            {"Aqua", "3000"},};
-        int hargaMaks = Integer.parseInt(daftarBarang[0][1]);
-        String barangMaks = "";
+        List<Barang> daftarBarang = new ArrayList<>();
+        daftarBarang.add(new Barang("Oreo", 6000));
+        daftarBarang.add(new Barang("Tanggo", 5000));
+        daftarBarang.add(new Barang("Buavita", 7000));
+        daftarBarang.add(new Barang("Aqua", 3000));
+
+        Collections.sort(daftarBarang, new Comparator<Barang>() {
+            @Override
+            public int compare(Barang o1, Barang o2) {
+                if (o1.getHarga() > o2.getHarga()) {
+                    return 1;
+                } else if (o1.getHarga() == o2.getHarga()) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        });
         Scanner scan = new Scanner(System.in);
         System.out.print("Masukkan modal awal: ");
         int modal = scan.nextInt();
 
-        for (int i = 0; i < daftarBarang.length - 1; i++) {
-            hargaMaks = Integer.parseInt(daftarBarang[i][1]);
-            if (hargaMaks <= modal) {
-                if (hargaMaks < Integer.parseInt(daftarBarang[i + 1][1])) {
-                    hargaMaks = Integer.parseInt(daftarBarang[i + 1][1]);
-                    barangMaks = daftarBarang[i + 1][0];
-                }
-            } else {
-                System.out.println("Modal tidak cukup");
+        int hargaMaks = 0;
+        String barangMaks = "";
+        for (Barang b : daftarBarang) {
+            if (b.getHarga() <= modal) {
+                hargaMaks = b.getHarga();
+                barangMaks = b.getNama();
             }
         }
         System.out.println("");
-        if (modal >= hargaMaks) {
+        if (modal >= hargaMaks && hargaMaks > 0) {
             System.out.printf("barang termahal yang dapat dibeli = %s dengan harga %d", barangMaks, hargaMaks);
         } else {
             System.out.println("Modal tidak cukup");
