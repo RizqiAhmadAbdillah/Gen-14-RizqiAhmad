@@ -30,21 +30,21 @@ public class TugasDaftarBarang {
                 System.err.println("File already exists!");
             }
 //            writing objects to file
-            FileOutputStream f = new FileOutputStream(file);
-            ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(barang);
-            o.writeObject(barang2);
-            o.writeObject(barang3);
-            o.writeObject(barang4);
-            o.close();
-            f.close();
+            FileOutputStream fileOutput = new FileOutputStream(file);
+            ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
+            objectOutput.writeObject(barang);
+            objectOutput.writeObject(barang2);
+            objectOutput.writeObject(barang3);
+            objectOutput.writeObject(barang4);
+            objectOutput.close();
+            fileOutput.close();
 //            printing file
-            FileInputStream fi = new FileInputStream(file);
-            ObjectInputStream oi = new ObjectInputStream(fi);
-            Barang br = (Barang) oi.readObject();
-            Barang br2 = (Barang) oi.readObject();
-            Barang br3 = (Barang) oi.readObject();
-            Barang br4 = (Barang) oi.readObject();
+            FileInputStream fileInput = new FileInputStream(file);
+            ObjectInputStream ObjectOutput = new ObjectInputStream(fileInput);
+            Barang br = (Barang) ObjectOutput.readObject();
+            Barang br2 = (Barang) ObjectOutput.readObject();
+            Barang br3 = (Barang) ObjectOutput.readObject();
+            Barang br4 = (Barang) ObjectOutput.readObject();
 
             System.out.println(br.toString());
             System.out.println(br2.toString());
