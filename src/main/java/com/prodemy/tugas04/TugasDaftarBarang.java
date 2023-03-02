@@ -4,7 +4,6 @@
  */
 package com.prodemy.tugas04;
 
-import java.util.*;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
