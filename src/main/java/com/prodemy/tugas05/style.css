@@ -201,11 +201,10 @@ h3 {
 }
 
 .footer {
-    /* display: inline-block; */
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 160px;
+    height: auto;
     border-top: 2px solid #BFB48F;
     background-image: url('assets/footer-background.svg');
 }
@@ -235,7 +234,21 @@ h3 {
 
 }
 
-.footer-content img{
+.footer-content h6 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 17px;
+    color: #F2EFE9;
+
+}
+
+.footer-content img {
     top: 0;
     padding-right: 4px;
+}
+
+.footer-content a:hover {
+    color: #BFB48F;
 }
