@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Manager Ajax</title>
+<script src="https://code.jquery.com/jquery-3.6.4.js"
+	integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+	crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+	crossorigin="anonymous">
+<!-- jQuery Modal -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<!-- <style>
+.modal p {
+	margin: 1em 0;
+}
+
+.add_form.modal {
+	border-radius: 0;
+	line-height: 18px;
+	padding: 0;
+	font-family: "Lucida Grande", Verdana, sans-serif;
+}
+
+.add_form.modal p {
+	padding: 20px 30px;
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee),
+		color-stop(1, #fff));
+	overflow: hidden;
+}
+
+.add_form.modal p:last-child {
+	border: none;
+}
+
+.add_form.modal p label {
+	float: left;
+	font-weight: bold;
+	color: #333;
+	font-size: 13px;
+	width: 110px;
+	line-height: 22px;
+}
+
+.add_form.modal p input[type="text"], .add_form.modal p input[type="submit"]
+	{
+	font: normal 12px/18px "Lucida Grande", Verdana;
+	padding: 3px;
+	border: 1px solid #ddd;
+	width: 200px;
+}
+
+#msg {
+	margin: 10px;
+	padding: 30px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	background: -moz-linear-gradient(top, #2e5764, #1e3d47);
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1e3d47),
+		color-stop(1, #2e5764));
+}
+</style> -->
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row mb-3 mt-3">
+				<h2>Spring Boot AJAX jQuery CRUD</h2>
+			</div>
+			<div class="row mb-3">
+				<div class=col>
+					<a class="btn btn-primary" href="#add" rel="modal:open">Add New
+						Customer</a>
+				</div>
+			</div>
+			<div class="row mb-3">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody class="table-group-divider"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<form id="add" action="#" class="add_form modal" style="display: none;">
+		<div id='msg' />
+		<div class="card mt-3">
+			<h5 class="card-header">Form Add Customer</h5>
+			<div class="card-body">
+				<div class="mb-3">
+					<label for="name" class="form-label">Name</label> <input
+						type="text" id="name" name="name" class="form-control">
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label> <input
+						type="text" id="email" name="email" class="form-control">
+				</div>
+				<div class="mb-3">
+					<label for="address" class="form-label">Address</label> <input
+						type="text" id="address" name="address" class="form-control">
+				</div>
+				<button id="addNew" type="submit" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
