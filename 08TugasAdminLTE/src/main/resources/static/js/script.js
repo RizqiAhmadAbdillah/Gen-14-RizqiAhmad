@@ -131,7 +131,7 @@ $(document).ready(function() {
 		address.html("<input type='text' id='address' value='" + address.html() + "'/>");
 		/*buttons.html("<button id='save'>Save</button>&nbsp;&nbsp;<button class='delete' id='" + id.html() + "'>Delete</button>");
 		*/
-		buttonEdit.html("<a id='save'><button type='button' class='btn btn-outline-primary btn-sm toastsDefaultDanger'><i class='fas fa-save fa-fw me-3'></i> Save</button></a>");
+		buttonEdit.html("<a id='save'><button type='button' class='btn btn-outline-primary btn-sm'><i class='fas fa-save fa-fw me-3'></i> Save</button></a>");
 		buttonDelete.html("<a class='delete' id='" + id.html() + "'><button type='button' class='btn btn-outline-danger btn-sm'><i class='fas fa-trash fa-fw me-3'></i> Delete</button></a>");
 	});
 
@@ -143,8 +143,12 @@ $(document).ready(function() {
 		var address = parent.children("td:nth-child(4)");
 		var buttonEdit = parent.children("td:nth-child(5)");
 		var buttonDelete = parent.children("td:nth-child(6)");
-		if (name == "" || email == "" || address == "") {
-			$('.toastsDefaultDanger').click(function() {
+		if (name.children("input[type=text]").val() == "" || email.children("input[type=text]").val() == "" || address.children("input[type=text]").val() == "") {
+			$('#alert').html('<div class="alert alert-danger text-center" role="alert"><strong>Data cannot be null</strong></div>');
+			window.setTimeout(function() {
+				$("#alert").html("");
+			}, 3000)
+			/*$('.toastsDefaultDanger').click(function() {
 				$(document).Toasts('create', {
 					class: 'bg-danger',
 					title: 'Invalid Update',
@@ -152,8 +156,13 @@ $(document).ready(function() {
 					body: 'Data cannot be null'
 				})
 			});
-		}
-		if (name != "" && email != "" && address != "") {
+			$('.swalDefaultError').click(function() {
+				Toast.fire({
+					icon: 'error',
+					title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+				})
+			});*/
+		} else {
 			$.ajax({
 				type: "POST",
 				contentType: "application/json; charset=utf-8",
